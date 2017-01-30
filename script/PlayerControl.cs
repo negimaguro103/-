@@ -5,9 +5,9 @@ public class PlayerControl : MonoBehaviour {
 	[SerializeField]private float speedY;
 	const int MinLane = -1;
 	const int MaxLane = 1;
-	const float LaneWidth = 2.0f;
+	const float LaneWidth = 1.8f;
 	public GameObject shot;
-
+	//1.6 3.4
 	CharacterController controller;
 	int targetLane;
 	Vector3 moveDirection = Vector3.zero;

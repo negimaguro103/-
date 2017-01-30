@@ -4,6 +4,7 @@ using System.Collections;
 public class GameLogic : MonoBehaviour {
 
 	public GameObject enemy;
+	public static bool clearFlag;
 
 	public enum GameState
 	{
@@ -19,7 +20,7 @@ public class GameLogic : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameState = GameState.GameBegin;
+		gameState = GameState.Play;
 	}
 	
 	// Update is called once per frame
@@ -43,10 +44,14 @@ public class GameLogic : MonoBehaviour {
 		if (GameTimer.TimeUp == true) {
 			gameState = GameState.GameCleared;
 			Debug.Log ("クリア");
+			clearFlag = true;
+			Application.LoadLevel ("Clear");
 		}
 		if (HitPoint.hitPoint <= 0) {
 			gameState = GameState.Gameover;
 			Debug.Log ("ゲームオーバー");
+			clearFlag = false;
+			Application.LoadLevel ("Clear");
 		}
 	}
 }
